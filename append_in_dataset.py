@@ -48,9 +48,10 @@ hold_time_user = []
 dd_key1_key2_user = []
 ud_key1_key2_user = []
 
-cnt = 1
+
 
 for i in range(0, len(subject_files)):
+    cnt = 1
     fpath = "output/" + subject_files[i]
     try:
         with open(fpath) as readfile:
