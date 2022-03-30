@@ -1,12 +1,18 @@
 import json
 import csv
 import os
+import sys
 
 subject_name = input("Enter username whose data is to be appended! :")
 subject_files = []
 for filename in os.listdir("./output/"):
     if filename.startswith(subject_name):
         subject_files.append(filename)
+try:
+    print("found: ", subject_files[0])
+except:
+    print("File not found")
+    sys.exit()
 
 # print(rows)
 csv_dd_rows = []
@@ -41,9 +47,12 @@ dd_key1_key2_user = []
 ud_key1_key2_user = []
 
 cnt = 1
+fpath = "output/" + subject_files[0]
 for i in range(1, len(subject_files)+1):
+     
     try:
-        with open('output/{}_rep{}_timings.json'.format(subject_name,i), 'r') as readfile:
+        with open(fpath) as readfile:
+            print("Json file: ", subject_files[0], " updated")
             hold_time_user_dict = dd_key1_key2_dict = ud_key1_key2_dict = {}
             data = json.load(readfile)
             for timing in data['timings']:
@@ -85,7 +94,9 @@ for i in range(1, len(subject_files)+1):
                 row["sessionIndex"] = 1
                 rows.append(row)
                 cnt += 1
+                
     except FileNotFoundError as fnfe:
+        print("Nothing happened")
         continue
 
 
