@@ -94,7 +94,7 @@ for i in range(0, len(subject_files)):
                     # print(key)
                 row["subject"] = subject_name
                 row["rep"] = cnt
-                row["sessionIndex"] = index
+                row["sessionIndex"] = i+1
                 rows.append(row)
                 cnt += 1
                 
