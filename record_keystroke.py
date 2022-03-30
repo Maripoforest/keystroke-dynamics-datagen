@@ -12,7 +12,7 @@ import json
 
 
 password = ".tie5Roanl"
-frequency_password_entry = 10
+frequency_password_entry = 50
 key_timings = dict()
 
 user_keystroke_timings_list = list()
