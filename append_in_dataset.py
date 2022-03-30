@@ -9,7 +9,9 @@ for filename in os.listdir("./output/"):
     if filename.startswith(subject_name):
         subject_files.append(filename)
 try:
-    print("found: ", subject_files[0])
+    print("found:")
+    for name in subject_files:
+        print(name)
 except:
     print("File not found")
     sys.exit()
@@ -47,12 +49,13 @@ dd_key1_key2_user = []
 ud_key1_key2_user = []
 
 cnt = 1
-fpath = "output/" + subject_files[0]
-for i in range(1, len(subject_files)+1):
-     
+index = input("number of this session:")
+
+for i in range(0, len(subject_files)):
+    fpath = "output/" + subject_files[i]
     try:
         with open(fpath) as readfile:
-            print("Updated .csv with Json file: ", subject_files[0])
+            print("Update .csv with: ", subject_files[i])
             hold_time_user_dict = dd_key1_key2_dict = ud_key1_key2_dict = {}
             data = json.load(readfile)
             for timing in data['timings']:
@@ -91,7 +94,7 @@ for i in range(1, len(subject_files)+1):
                     # print(key)
                 row["subject"] = subject_name
                 row["rep"] = cnt
-                row["sessionIndex"] = 1
+                row["sessionIndex"] = index
                 rows.append(row)
                 cnt += 1
                 
