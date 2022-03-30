@@ -52,7 +52,7 @@ for i in range(1, len(subject_files)+1):
      
     try:
         with open(fpath) as readfile:
-            print("Json file: ", subject_files[0], " updated")
+            print("Updated .csv with Json file: ", subject_files[0])
             hold_time_user_dict = dd_key1_key2_dict = ud_key1_key2_dict = {}
             data = json.load(readfile)
             for timing in data['timings']:
