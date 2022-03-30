@@ -49,7 +49,6 @@ dd_key1_key2_user = []
 ud_key1_key2_user = []
 
 cnt = 1
-index = input("number of this session:")
 
 for i in range(0, len(subject_files)):
     fpath = "output/" + subject_files[i]
